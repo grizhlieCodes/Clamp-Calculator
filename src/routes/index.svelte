@@ -135,7 +135,7 @@
 
 	<div class="clamp-calc-result">
 		<p on:click={copyToClipboard} class="result" tabindex="0" on:keydown={copyToClipboard}>
-			clamp: {minSize}rem, {yAxisIntersection.toFixed(4)}rem + {vwUnits.toFixed(4)}vw, {maxSize}rem;
+			clamp({minSize}rem, {yAxisIntersection.toFixed(4)}rem + {vwUnits.toFixed(4)}vw, {maxSize}rem);
 		</p>
 		<div class="popup">
 			<div class="triangle" />
