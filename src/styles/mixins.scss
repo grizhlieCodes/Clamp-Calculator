@@ -1,0 +1,89 @@
+@mixin flex($flow, $justify, $align) {
+  display: flex;
+
+  @if ($flow == 0) {
+    flex-flow: row nowrap;
+  } @else {
+    flex-flow: $flow;
+  }
+
+  @if ($justify == 0) {
+    justify-content: center;
+  } @else {
+    justify-content: $justify;
+  }
+
+  @if ($align == 0) {
+    align-items: center;
+  } @else {
+    align-items: $align;
+  }
+}
+
+@mixin eflex($flow, $justify, $align) {
+  @if ($flow == 0) {
+    flex-flow: row nowrap;
+  } @else {
+    flex-flow: $flow;
+  }
+  @if ($justify == 0) {
+    justify-content: center;
+  } @else {
+    justify-content: $justify;
+  }
+  @if ($align == 0) {
+    align-items: center;
+  } @else {
+    align-items: $align;
+  }
+}
+
+@function v($var) {
+  @return var(--#{$var});
+}
+
+$mobile: 375;
+$tablet: 768;
+$desktop: 1200;
+
+@mixin mq($size) {
+  @if ($size == tablet) {
+    @media screen and (min-width: #{$tablet}px) {
+      @content;
+    }
+  }
+  @if ($size == desktop) {
+    @media screen and (min-width: #{$desktop}px) {
+      @content;
+    }
+  }
+  @if ($size == mobile) {
+    @media screen and (max-width: #{$mobile}px) {
+      @content;
+    }
+  }
+}
+
+@mixin center() {
+  display: grid;
+  place-items: center;
+}
+
+@mixin ab-center() {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// padding mixins
+
+@mixin px($rem-units) {
+  padding-left: #{$rem-units}rem;
+  padding-right: #{$rem-units}rem;
+}
+
+@mixin py($rem-units) {
+  padding-top: #{$rem-units}rem;
+  padding-bottom: #{$rem-units}rem;
+}
